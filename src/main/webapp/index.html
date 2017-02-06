@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<!-- bootstrap.css -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/datatables.min.css"/>
+ 
+</head>
+<body>
+
+	<div class = "container">
+		<input id = "userInput" type = "text"/>
+		<button id="submitButton">Find!</button>
+	</div>
+	
+	<div class = "container clearMe" id = "poke_name"></div>
+	
+	<div class = "container clearMe" id = "pokedex_index"></div>
+	
+	<div class = "container" id = "poke_sprite">
+		<p class = "image" id = "sprite"></p>
+	</div>
+ 
+	<div class = "container clearMe" id = "poke_types"></div>
+	
+	<div class = "container clearMe" id = "relations_from"></div>
+	
+<!--<div class = "container" id = "relations_to"></div> -->
+	
+	<div class = "container clearMe" id = "base_stats"></div>
+	
+	<div class = "container clearMe" id = "abilities"></div>
+	
+	<div class = "container clearMe" id = "moves">
+		
+	</div>
+	
+	<div class = "container clearMe"></div>
+	
+	<div class = "container clearMe" id = "evolutions"></div>
+	
+	
+	<!-- jQuery -->
+	<script src = "http://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+			  
+	<!-- bootstrap.js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	 <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/datatables.min.js"></script>
+	 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+	 
+	<!-- Custom JavaScript -->
+	<script type="text/javascript" src="scripts/pokedex_app.js"></script>
+</body>
+</html>
