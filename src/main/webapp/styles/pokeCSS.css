@@ -1,2 +1,39 @@
 @CHARSET "ISO-8859-1";
 
+body {
+    border-left: 10px solid #ff8080;
+    border-right: 10px solid #ff8080; 
+	margin : 0 auto;
+	position : absolute;
+	top : 0;
+	right : 0;
+	bottom : 0;
+	left : 0;
+	overflow : scroll;
+	background : #bbfc92;
+}
+
+table, th, td, tr {
+	border: 1px solid black;
+}
+
+thead, tbody{
+	border: 1px solid black;
+}
+
+body:before, body:after {
+    content: "";
+    position: fixed;
+    background: #ff8080;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+body:before {
+    top: 0;
+}
+
+body:after {
+    bottom: 0;
+}

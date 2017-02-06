@@ -91,7 +91,6 @@ var getPoke = (function(input){
 			mySpec = lSpec[0];
 			
 			$.when(ajax4(mySpec.evolution_chain.url)).done(function(lEvo){
-				console.log(lEvo);
 				pokeMon.evolutions.push({name : lEvo.chain.species.name, min_level : 0});
 				
 				if(lEvo.chain.evolves_to.length > 0){
@@ -178,7 +177,7 @@ var getPoke = (function(input){
 				
 				//Pokedex Index
 				pokeMon.pokeindex = mySpec.pokedex_numbers[mySpec.pokedex_numbers.length-1].entry_number;
-	
+
 				//Type Relations
 				for(o=0;o<pokeMon.types.length;o++){
 					$.when(ajax3(o, pokeMon.types)).done(function(myRel){
@@ -188,11 +187,11 @@ var getPoke = (function(input){
 									pokeMon.relations.double_from.push(myRel.damage_relations.double_damage_from[v].name);
 								}
 								
-								if($.inArray("ground", double_from)){
+								if($.inArray("ground", pokeMon.relations.double_from)){
 									pokeMon.relations.double_from.splice(pokeMon.relations.double_from.indexOf("ground"),1);
 								}
 								
-								if(!$.inArray("ground", null_from)){
+								if(!$.inArray("ground", pokeMon.relations.null_from)){
 									pokeMon.relations.null_from.push("ground");
 								}
 							} else {
@@ -210,11 +209,11 @@ var getPoke = (function(input){
 									pokeMon.relations.half_from.push(myRel.damage_relations.half_damage_from[w].name);
 								}
 								
-								if($.inArray("ground", half_from)){
+								if($.inArray("ground", pokeMon.relations.half_from)){
 									pokeMon.relations.half_from.splice(pokeMon.relations.half_from.indexOf("ground"),1);
 								}
 								
-								if(!$.inArray("ground", null_from)){
+								if(!$.inArray("ground", pokeMon.relations.null_from)){
 									pokeMon.relations.null_from.push("ground");
 								}
 							} else {
@@ -238,7 +237,11 @@ var getPoke = (function(input){
 						if (counter === pokeMon.types.length){
 							adjust();
 						}
+						
 					});
+					
+					
+					
 				}
 			});
 		})
@@ -316,7 +319,6 @@ function displayMethod(){
 			"4x Damage From"];
 		
 		var table = $("<table class = 'table table-condensed table-responsive' />");
-		table[0].border = '1';
 		
 		var header = $("<thead />");
 		table.append(header);
@@ -397,7 +399,6 @@ function displayMethod(){
 	function statLooper(arr1){
 		
 		var table = $("<table class = 'table table-condensed table-responsive' />");
-		table[0].border = '1';
 		
 		var header = $("<thead />");
 		table.append(header);
@@ -429,7 +430,6 @@ function displayMethod(){
 	
 	function moveLooper(arr1){
 		var table = $("<table class = 'table table-condensed table-responsive' id = 'countTable' />");
-		table[0].border = '1';
 		
 		var header = $("<thead />");
 		table.append(header);
@@ -488,7 +488,7 @@ function displayMethod(){
 	
 	$("#abilities").append("<h2 class = 'col-sm-12'>Abilities</h2>");
 	for(a=0;a<pokeMon.abilities.length;a++){
-		$("#abilities").append("<p class = 'capital col-sm-2'>" + pokeMon.abilities[a] + "</p>");
+		$("#abilities").append("<div class = 'col-sm-12 capital'>" + pokeMon.abilities[a] + "</div>");
 	}
 	
 	moveLooper(pokeMon.moves);
@@ -512,10 +512,10 @@ function displayMethod(){
 	
 	$('#countTable').dataTable({
 		"ordering" : false,
-		buttons : {
+		buttons : [{
 			id: 'example_paginate',
 			className : 'paging_simple_numbers'
-		}
+		}]
 	});
 }
 
